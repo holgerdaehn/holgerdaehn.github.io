@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Holger Dähn — Teamleiter IT in Berlin. Infrastruktur, IT-Sicherheit, Compliance und IT-Projekte." />
+    <title>Holger Dähn</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap");
+
+      :root { --paper:#f4f1ea; --ink:#171717; --muted:#6d6b65; --line:#d7d3ca; --accent:#e55934; color-scheme:light; }
+      @media (prefers-color-scheme: dark) {
+        :root { --paper:#15140f; --ink:#ece8df; --muted:#9b968a; --line:#33302a; --accent:#f0764f; color-scheme:dark; }
+      }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink); font-family:"DM Sans", Arial, sans-serif; }
+      a { color:inherit; text-decoration:none; }
+      .page { max-width:1500px; margin:0 auto; padding:27px 42px 32px; }
+      header { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:22px; }
+      .brand { font:500 16px/1 "DM Mono", monospace; letter-spacing:-.04em; }
+      .language { display:flex; align-items:center; gap:9px; font:500 12px/1 "DM Mono", monospace; }
+      .lang-button { border:1px solid var(--ink); border-radius:999px; background:transparent; color:var(--ink); cursor:pointer; display:grid; grid-template-columns:1fr 1fr; padding:3px; width:70px; height:30px; position:relative; }
+      .lang-button::before { content:""; position:absolute; z-index:0; inset:3px auto 3px 3px; width:29px; background:var(--ink); border-radius:50%; transition:transform .25s ease; }
+      .lang-button[aria-checked="true"]::before { transform:translateX(35px); }
+      .lang-button span { position:relative; z-index:1; display:grid; place-items:center; font:500 10px/1 "DM Mono", monospace; }
+      .lang-button[aria-checked="false"] span:first-child, .lang-button[aria-checked="true"] span:last-child { color:var(--paper); }
+      .layout { display:grid; grid-template-columns:225px minmax(0,1fr); gap:clamp(38px, 6vw, 92px); padding-top:clamp(40px, 7vh, 96px); }
+      aside { align-self:start; position:sticky; top:28px; border-right:1px solid var(--line); padding-right:clamp(20px, 2.4vw, 40px); }
+      .avatar { width:104px; height:104px; border-radius:50%; object-fit:cover; object-position:50% 20%; display:block; margin:0 0 26px; border:1px solid var(--line); background:var(--line); }
+      .sidebar-name { font:500 15px/1.3 "DM Sans", Arial, sans-serif; letter-spacing:-.01em; margin:0 0 3px; }
+      .sidebar-role { color:var(--muted); font:400 12px/1.4 "DM Mono", monospace; margin:0 0 24px; }
+      .contact-title { color:var(--muted); font:500 10px/1 "DM Mono", monospace; letter-spacing:.1em; text-transform:uppercase; margin:0 0 22px; }
+      .contact-list { list-style:none; padding:0; margin:0; display:grid; gap:17px; }
+      .contact-list a { font-size:14px; display:inline-flex; gap:11px; align-items:center; transition:color .2s ease; }
+      .contact-list a:hover { color:var(--accent); }
+      .contact-list svg { width:16px; height:16px; flex-shrink:0; color:var(--muted); transition:color .2s ease; }
+      .contact-list a:hover svg { color:var(--accent); }
+      main { max-width:935px; }
+      .eyebrow { font:500 11px/1.2 "DM Mono", monospace; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; margin:0 0 18px; }
+      h1 { font:600 clamp(30px, 4.2vw, 50px)/1.06 "DM Sans", Arial, sans-serif; letter-spacing:-.035em; margin:0; max-width:18ch; }
+      h1 em { font-style:normal; color:var(--accent); }
+      .lede { max-width:680px; margin:20px 0 0; font-size:clamp(18px, 1.9vw, 23px); line-height:1.4; letter-spacing:-.015em; color:var(--ink); }
+      .lede strong { font-weight:600; color:var(--accent); }
+      .tags { list-style:none; padding:0; margin:34px 0 0; display:flex; flex-wrap:wrap; gap:9px; max-width:760px; }
+      .tags li { font:500 12px/1 "DM Mono", monospace; letter-spacing:.02em; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:9px 13px; transition:border-color .2s ease; }
+      .tags li:hover { border-color:var(--ink); }
+      .rule { margin:clamp(44px, 7vh, 84px) 0 22px; border:0; border-top:1px solid var(--line); }
+      .note { display:grid; grid-template-columns:145px minmax(0,1fr); gap:25px; font:400 12px/1.5 "DM Mono", monospace; color:var(--muted); }
+      .note p { margin:0; max-width:640px; }
+      .note-label { color:var(--ink); text-transform:uppercase; letter-spacing:.08em; }
+      .block { max-width:780px; margin-top:clamp(44px, 6vh, 72px); padding-top:clamp(44px, 6vh, 72px); border-top:1px solid var(--line); }
+      .block h2 { font:600 clamp(20px, 2.3vw, 27px)/1.2 "DM Sans", Arial, sans-serif; letter-spacing:-.025em; margin:0 0 16px; }
+      .block p { margin:0 0 15px; font-size:16.5px; line-height:1.62; color:var(--ink); }
+      .block p:last-child { margin:0; }
+      footer { border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:8px 22px; justify-content:space-between; margin-top:90px; padding-top:17px; color:var(--muted); font:400 10px/1.3 "DM Mono", monospace; }
+      footer a { transition:color .2s ease; }
+      footer a:hover { color:var(--accent); }
+      .foot-apps { letter-spacing:.02em; }
+      [data-lang] { display:none; } [data-lang].is-active { display:block; }
+      @media (max-width:760px) { .page{padding:21px 21px 28px}.layout{grid-template-columns:1fr;gap:44px;padding-top:56px} aside{position:static;border-right:0;border-bottom:1px solid var(--line);padding:0 0 28px}.contact-list{grid-template-columns:1fr 1fr;gap:16px 18px}.lede{margin-top:16px}.tags{margin-top:26px}.block{margin-top:36px;padding-top:36px}.note{grid-template-columns:1fr;gap:8px} footer{margin-top:70px} }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <a class="brand" href="/" aria-label="Startseite">HOLGER DÄHN</a>
+        <div class="language"><span id="language-label">DE</span><button class="lang-button" id="language-switch" type="button" role="switch" aria-checked="false" aria-labelledby="language-label"><span>DE</span><span>EN</span></button></div>
+      </header>
+      <div class="layout">
+        <aside aria-label="Kontakt">
+          <img class="avatar" src="me.jpeg" width="104" height="104" alt="Holger Dähn" />
+          <p class="sidebar-name">Holger Dähn</p>
+          <p class="sidebar-role"><span data-lang="de">Teamleiter IT</span><span data-lang="en">IT Team Lead</span></p>
+          <p class="contact-title" data-lang="de">Kontakt</p><p class="contact-title" data-lang="en">Contact</p>
+          <ul class="contact-list">
+            <li><a href="https://maps.google.com/?q=Berlin" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span data-lang="de">Berlin, Deutschland</span><span data-lang="en">Berlin, Germany</span></a></li>
+            <li><a href="https://www.linkedin.com/in/holgerdaehn/" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.4 8.5h3.1V21H3.4V8.5Zm5.06 0h2.97v1.71h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.09v-5.34c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.81V21H8.46V8.5Z"/></svg>LinkedIn</a></li>
+            <li><a href="https://github.com/kaschemme" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.79.62-3.38-1.37-3.38-1.37-.46-1.18-1.12-1.5-1.12-1.5-.91-.64.07-.62.07-.62 1.01.07 1.54 1.06 1.54 1.06.9 1.56 2.36 1.11 2.94.85.09-.66.35-1.11.63-1.37-2.23-.26-4.57-1.14-4.57-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>GitHub</a></li>
+            <li><a href="mailto:holgerdaehn@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a></li>
+          </ul>
+        </aside>
+        <main>
+          <section data-lang="de">
+            <p class="eyebrow">AI-driven Business Solutions · From Complexity to Clarity</p>
+            <h1>Hallo, ich bin <em>Holger</em>.</h1>
+            <p class="lede">Teamleiter IT aus Berlin. Ich verbinde Infrastruktur, Sicherheit und Menschen zu Lösungen, die <strong>Komplexität in Klarheit</strong> verwandeln — und Unternehmen spürbar voranbringen.</p>
+            <ul class="tags">
+              <li>IT-Infrastruktur &amp; Cloud</li>
+              <li>IT-Security &amp; Compliance</li>
+              <li>KRITIS &amp; NIS2</li>
+              <li>IT-Projekte</li>
+              <li>Team-Leadership</li>
+              <li>Release &amp; Access Management</li>
+              <li>AI-driven Solutions</li>
+            </ul>
+          </section>
+          <section data-lang="en">
+            <p class="eyebrow">AI-driven Business Solutions · From Complexity to Clarity</p>
+            <h1>Hello, I’m <em>Holger</em>.</h1>
+            <p class="lede">IT team lead based in Berlin. I bring together infrastructure, security, and people into solutions that turn <strong>complexity into clarity</strong> — and move organisations forward.</p>
+            <ul class="tags">
+              <li>IT Infrastructure &amp; Cloud</li>
+              <li>IT Security &amp; Compliance</li>
+              <li>KRITIS &amp; NIS2</li>
+              <li>IT Projects</li>
+              <li>Team Leadership</li>
+              <li>Release &amp; Access Management</li>
+              <li>AI-driven Solutions</li>
+            </ul>
+          </section>
+          <section class="block" data-lang="de">
+            <h2>Über mich</h2>
+            <p>Ich bin Teamleiter IT und arbeite an der Schnittstelle von Technik, Sicherheit und Menschen. Meine Stärke ist es, komplexe Systeme zu verstehen und sicher zu steuern — und aus einem unübersichtlichen Problem eine klare, tragfähige Lösung zu machen, für die Systeme genauso wie für das Team dahinter.</p>
+            <p>Genauso wichtig ist mir der Blick für die Menschen dahinter: Probleme früh zu erkennen, Anwendern wirklich zuzuhören und hinter ihren Anliegen die eigentlichen Bedürfnisse zu sehen — und daraus Lösungen zu entwickeln, die im Alltag tragen.</p>
+            <p>Dabei setze ich nicht reflexartig auf das Neueste. Eine gute Lösung ist für mich wirtschaftlich tragbar, sicher und nutzerfreundlich — der Nutzer steht immer im Mittelpunkt. Neues wie KI bringe ich gezielt dort ein, wo es echten Mehrwert schafft, statt Technik um ihrer selbst willen.</p>
+            <p>Viele Jahre habe ich im Ausland gearbeitet — andere Arbeitsweisen, anderes Denken und Sprachen sind mir daher vertraut. Aus dieser Zeit ist eine Überzeugung geblieben: Was Menschen verbindet, zählt mehr als das, was sie trennt. Für mich steht der Mensch im Vordergrund — unabhängig von Herkunft oder Überzeugung. Mit vielen Kolleginnen und Kollegen aus aller Welt verbindet mich bis heute ein vertrauensvolles Verhältnis.</p>
+          </section>
+          <section class="block" data-lang="en">
+            <h2>About</h2>
+            <p>I’m an IT team lead working at the intersection of technology, security, and people. My strength is understanding and safely steering complex systems — turning a tangled problem into a clear, workable solution, for the systems as much as for the team behind them.</p>
+            <p>Just as important is an eye for the people behind them: spotting problems early, really listening to users, and seeing the actual needs behind their requests — then building solutions that hold up in everyday use.</p>
+            <p>I don’t reach for the newest thing by reflex. A good solution has to be economically sound, secure, and easy to use — the user always comes first. I bring in new technology like AI deliberately, where it creates real value, not for its own sake.</p>
+            <p>For many years I worked abroad, so different ways of working, different thinking, and other languages feel familiar to me. One conviction has stayed with me from that time: what connects people matters more than what divides them. For me, the person comes first — regardless of background or belief. To this day I stay close to many colleagues from all over the world.</p>
+          </section>
+          <section class="block" data-lang="de">
+            <h2>Hintergrund</h2>
+            <p>Mein fachlicher Schwerpunkt liegt seit Jahren auf der Gesamtverantwortung für die IT eines Unternehmens im Energiesektor: IT-Sicherheit und Compliance, Betrieb und kosteneffiziente Beschaffung der kompletten Infrastruktur — Netzwerke, Telefonie, Hardware und Cloud — sowie Release-, Nutzer- und Zugriffsmanagement. Ein aktuelles, anspruchsvolles Handlungsfeld sind die Anforderungen aus KRITIS und NIS2, die den Betrieb kritischer Infrastruktur maßgeblich prägen.</p>
+            <p>Über verschiedene Unternehmen hinweg habe ich beide Enden des Lebenszyklus begleitet — vom Mitaufbau von Strukturen und IT bis zur geordneten, kontrollierten Abwicklung. Gerade in Umbruchphasen zahlt es sich aus, Systeme, Prozesse und Menschen sicher durch die Veränderung zu führen.</p>
+            <p>Prägend ist für mich die Verbindung aus Betrieb und Gestaltung: den Produktivbetrieb einzelner Systeme sichern, zugleich IT-Projekte konzipieren und umsetzen, Fachbereiche beraten und das IT-Team fachlich führen und weiterentwickeln. Aus dieser Breite ist ein pragmatischer Blick dafür entstanden, wie Technik echten Mehrwert schafft — sicher, wirtschaftlich und nah an den Menschen, die sie nutzen.</p>
+            <p>Komplexe, kritische Systeme sind mir dabei nicht fremd — von Backbone-Netzwerken über Satellitenkommunikation bis zu weiteren anspruchsvollen Kommunikationswegen. Diese Erfahrung schärft bis heute meinen Blick dafür, worauf es ankommt, wenn etwas zuverlässig, sicher und unter realen Bedingungen laufen muss.</p>
+          </section>
+          <section class="block" data-lang="en">
+            <h2>Background</h2>
+            <p>For years my professional focus has been end-to-end responsibility for the IT of a company in the energy sector: IT security and compliance, operating and cost-efficiently procuring the entire infrastructure — networks, telephony, hardware, and cloud — as well as release, user, and access management. A demanding current focus is meeting the requirements of KRITIS and NIS2, which shape how critical infrastructure has to be run.</p>
+            <p>Across several companies I’ve been part of both ends of the lifecycle — from helping build up structures and IT to orderly, controlled wind-downs. Especially in times of change, it pays to guide systems, processes, and people safely through the transition.</p>
+            <p>What has shaped me most is the mix of operations and design: keeping individual systems running in production while conceiving and delivering IT projects, advising departments, and leading and growing the IT team. That breadth gave me a pragmatic sense of how technology creates real value — securely, economically, and close to the people who use it.</p>
+            <p>Complex, critical systems are familiar terrain — from backbone networks and satellite communications to other demanding communication channels. That experience still sharpens my sense of what matters when something has to run reliably and securely under real-world conditions.</p>
+          </section>
+          <section class="block" data-lang="de">
+            <h2>Zukunft der IT</h2>
+            <p>Über die Zukunft der IT nachzudenken, gehört für mich zur Rolle dazu — nicht als Selbstzweck, sondern als Verantwortung. Eine komplexe Infrastruktur lässt sich nicht über Nacht umbauen. Veränderung gelingt nur, wenn man die Mitarbeiter mitnimmt und überzeugt und die Führungsebene früh abholt und einbindet. Technik ist dabei selten das eigentliche Problem — Tempo, Timing und Menschen sind es.</p>
+            <p>KI ist überall und kann das nächste große Ding werden. Für mich heißt das: jede neue Technologie verstehen und mitnehmen, sie aber mit Bedacht einsetzen. KI ist ein Werkzeug, kein Selbstläufer — ihren Wert entfaltet sie dort, wo sie ein echtes Problem löst. Dass sie zunächst einschüchternd wirkt, kenne ich; das gleiche Gefühl hatten viele vor dem Internet. Heute ist es selbstverständlich.</p>
+          </section>
+          <section class="block" data-lang="en">
+            <h2>The future of IT</h2>
+            <p>Thinking about where IT is heading is part of the job for me — not for its own sake, but as a responsibility. A complex infrastructure can’t be rebuilt overnight. Change only works when you bring your team along and win them over, and get leadership on board early. Technology is rarely the real challenge — pace, timing, and people are.</p>
+            <p>AI is everywhere and could well be the next big thing. To me that means understanding and adopting every new technology — while using it with care. AI is a tool, not autopilot; it creates value where it solves a real problem. It feels intimidating at first, and I know that feeling — many had exactly it before the internet. Today it’s second nature.</p>
+          </section>
+          <hr class="rule" />
+          <div class="note">
+            <span class="note-label" data-lang="de">Sprechen wir</span><span class="note-label" data-lang="en">Let’s talk</span>
+            <p data-lang="de">Für Projekte, Fragen oder einfach ein gutes Gespräch — am besten per E-Mail.</p>
+            <p data-lang="en">For projects, questions, or simply a good conversation — email works best.</p>
+          </div>
+        </main>
+      </div>
+      <footer>
+        <span>© <span id="year"></span> HOLGER DÄHN</span>
+        <span class="foot-apps">Apps · <a href="https://download.kundida.de" target="_blank" rel="noreferrer" title="Forseti — System- &amp; Entwicklerpflege für den Mac">Forseti</a> · <a href="https://download.kundida.de" target="_blank" rel="noreferrer" title="Triglav — RDP- &amp; SSH-Verbindungsmanager">Triglav</a></span>
+        <span>DE / EN</span>
+      </footer>
+    </div>
+    <script>
+      const languageSwitch = document.querySelector('#language-switch');
+      const languageLabel = document.querySelector('#language-label');
+      const content = document.querySelectorAll('[data-lang]');
+      function setLanguage(language) {
+        document.documentElement.lang = language;
+        document.title = language === 'de' ? 'Holger Dähn' : 'Holger Dähn — Personal website';
+        languageSwitch.setAttribute('aria-checked', String(language === 'en'));
+        languageLabel.textContent = language.toUpperCase();
+        content.forEach((element) => element.classList.toggle('is-active', element.dataset.lang === language));
+        localStorage.setItem('holger-language', language);
+      }
+      languageSwitch.addEventListener('click', () => setLanguage(languageSwitch.getAttribute('aria-checked') === 'true' ? 'de' : 'en'));
+      setLanguage(localStorage.getItem('holger-language') || 'de');
+      document.querySelector('#year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
