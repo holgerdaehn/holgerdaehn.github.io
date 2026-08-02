@@ -1,0 +1,62 @@
+# Betriebssysteme
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Desktop.ini
+
+# IDEs und Editoren
+.idea/
+.vscode/
+*.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Lokale Umgebungsvariablen und Geheimnisse
+.env
+.env.*
+!.env.example
+*.local
+
+# Abhängigkeiten und Paketmanager
+node_modules/
+.pnp/
+.pnp.js
+# Gemfile-/Bundler-Abhängigkeiten
+vendor/
+Gemfile.lock
+
+# GitHub Pages / Jekyll
+# Wird von GitHub Pages bzw. lokalen Jekyll-Builds erzeugt.
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Build-, Test- und Coverage-Ausgaben
+dist/
+build/
+out/
+.cache/
+.parcel-cache/
+.vite/
+coverage/
+.nyc_output/
+
+# Logs und temporäre Dateien
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Python-/Tool-Caches, falls lokale Hilfsskripte genutzt werden
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
