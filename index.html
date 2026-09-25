@@ -93,6 +93,12 @@
       .block h2 { font:600 clamp(20px, 2.3vw, 27px)/1.2 "DM Sans", Arial, sans-serif; letter-spacing:-.025em; margin:0 0 16px; }
       .block p { margin:0 0 15px; font-size:16.5px; line-height:1.62; color:var(--ink); }
       .block p:last-child { margin:0; }
+      .support-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; margin-top:24px; }
+      .support-button { display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--paper); border-radius:999px; padding:13px 20px; font:500 13px/1 "DM Mono", monospace; letter-spacing:.02em; transition:background .2s ease, transform .2s ease; }
+      .support-button:hover { background:var(--accent); transform:translateY(-1px); }
+      .support-button svg { width:16px; height:16px; flex-shrink:0; color:var(--accent); transition:color .2s ease; }
+      .support-button:hover svg { color:var(--paper); }
+      .support-note { color:var(--muted); font:400 12px/1.5 "DM Mono", monospace; }
       footer { border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:8px 22px; justify-content:space-between; margin-top:90px; padding-top:17px; color:var(--muted); font:400 10px/1.3 "DM Mono", monospace; }
       footer a { transition:color .2s ease; }
       footer a:hover { color:var(--accent); }
@@ -188,6 +194,26 @@
             <p>Thinking about where IT is heading is part of the job for me — not for its own sake, but as a responsibility. A complex infrastructure can’t be rebuilt overnight. Change only works when you bring your team along and win them over, and get leadership on board early. Technology is rarely the real challenge — pace, timing, and people are.</p>
             <p>AI is everywhere and could well be the next big thing. To me that means understanding and adopting every new technology — while using it with care. AI is a tool, not autopilot; it creates value where it solves a real problem. It feels intimidating at first, and I know that feeling — many had exactly it before the internet. Today it’s second nature.</p>
           </section>
+          <div id="support">
+            <section class="block" data-lang="de">
+              <h2>Unterstützen</h2>
+              <p>Meine Apps entstehen in meiner Freizeit – aus dem Wunsch, dass gute Werkzeuge weniger Klicken und mehr Arbeiten bedeuten. Ohne Abo, ohne Werbung, ohne Datensammlung.</p>
+              <p>Wenn dir eine davon Zeit oder Nerven spart, freue ich mich über einen Kaffee. Jeder Beitrag fließt in Pflege, neue Funktionen und die nächste Idee.</p>
+              <div class="support-actions">
+                <a class="support-button" href="https://paypal.me/holgerdaehn" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.1-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg>Per PayPal unterstützen</a>
+                <span class="support-note">Freiwillig und ohne Gegenleistung. Danke!</span>
+              </div>
+            </section>
+            <section class="block" data-lang="en">
+              <h2>Support</h2>
+              <p>I build my apps in my spare time – out of the wish that good tools mean less clicking and more getting things done. No subscription, no ads, no data collection.</p>
+              <p>If one of them saves you time or nerves, I’d be happy about a coffee. Every contribution goes into maintenance, new features and the next idea.</p>
+              <div class="support-actions">
+                <a class="support-button" href="https://paypal.me/holgerdaehn" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.1-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg>Support via PayPal</a>
+                <span class="support-note">Voluntary, nothing in return. Thank you!</span>
+              </div>
+            </section>
+          </div>
           <hr class="rule" />
           <div class="note">
             <span class="note-label" data-lang="de">Sprechen wir</span><span class="note-label" data-lang="en">Let’s talk</span>
